@@ -37,6 +37,18 @@ class Player {
       this.currentlyPlaying.element.removeClass('playing').addClass('paused');
     }
   }
+
+  prettyTime (timeInSeconds) {
+    let min = Math.floor(timeInSeconds/60);
+    let s = Math.floor(timeInSeconds - (60*min));
+    min = min.toString();
+    s = s.toString();
+    if (s <= 9) {
+      return min + ':0' + s;
+    } else {
+      return min + ':' + s;
+    }
+  }
   
   skipTo (percent) {
     if (this.playState !== 'playing') { return }
